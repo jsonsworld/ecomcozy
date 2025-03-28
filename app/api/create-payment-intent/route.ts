@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
+import { CartItem } from '../../types/product'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-02-24.acacia' as any,
+  apiVersion: '2025-02-24.acacia' as Stripe.LatestApiVersion,
 })
 
 export async function POST(req: Request) {
@@ -10,7 +11,7 @@ export async function POST(req: Request) {
     const { items } = await req.json()
 
     // Calculate total amount from cart items
-    const amount = items.reduce((total: number, item: any) => {
+    const amount = items.reduce((total: number, item: CartItem) => {
       return total + (item.price * item.quantity)
     }, 0)
 

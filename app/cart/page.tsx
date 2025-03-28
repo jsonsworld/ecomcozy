@@ -43,7 +43,8 @@ function CheckoutForm() {
       } else {
         clearCart()
       }
-    } catch (err) {
+    } catch (error) {
+      console.error('Payment confirmation error:', error)
       setError('An unexpected error occurred')
     }
 

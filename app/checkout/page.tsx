@@ -8,7 +8,6 @@ import {
   useElements,
   Elements,
 } from '@stripe/react-stripe-js'
-import { useRouter } from 'next/navigation'
 
 // Initialize Stripe
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
@@ -16,7 +15,6 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 function CheckoutForm() {
   const stripe = useStripe()
   const elements = useElements()
-  const router = useRouter()
   const [error, setError] = useState<string | null>(null)
   const [processing, setProcessing] = useState(false)
 
@@ -40,7 +38,8 @@ function CheckoutForm() {
       if (error) {
         setError(error.message ?? 'An error occurred')
       }
-    } catch (err) {
+    } catch (error) {
+      console.error('Payment confirmation error:', error)
       setError('An unexpected error occurred')
     }
 

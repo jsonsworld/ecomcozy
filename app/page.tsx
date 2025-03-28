@@ -53,7 +53,7 @@ export default function Home() {
             <div className="text-center p-6">
               <div className="text-4xl mb-4">🌱</div>
               <h3 className="text-xl font-semibold mb-4">Sustainability</h3>
-              <p className="text-gray-600">We're committed to sustainable practices, making fashion that's kind to the planet.</p>
+              <p className="text-gray-600">We&apos;re committed to sustainable practices, making fashion that&apos;s kind to the planet.</p>
             </div>
           </div>
         </div>
