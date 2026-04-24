@@ -77,3 +77,4 @@ export function useCart() {
   }
   return context
 } 
+// https://dev.to/anne46/cart-functionality-in-react-with-context-api-2k2f
